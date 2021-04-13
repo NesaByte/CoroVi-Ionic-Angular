@@ -1,0 +1,7 @@
+{
+  "name": "corovi_ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
