@@ -1,20 +1,111 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid>
+
+    <ion-row>
+      <ion-col>
+        <ion-input class="ip" [(ngModel)]="input_cn" placeholder="Enter Country Name" type="string"></ion-input>
+
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onClickFind()">Find</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col class="col_c col_cg">
+        <ion-label>
+          <ion-text>
+            <h2>GLOBAL</h2>
+          </ion-text>
+          <ion-text color="white">
+            <p>GLOBAL</p>
+          </ion-text>
+          <ion-text color="white">
+            <p><br> DEATHS</p>
+          </ion-text>
+        </ion-label>
+      </ion-col>
+
+      <ion-col class="col_c col_cc">
+        <ion-label>
+          <ion-text>
+            <h2>CASES</h2>
+          </ion-text>
+          <ion-text color="white">
+            <p>CASES</p>
+          </ion-text>
+          <ion-text color="white">
+            <p><br> DEATHS</p>
+          </ion-text>
+        </ion-label>
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col class="col_c col_cr">
+        <ion-label>
+          <ion-text>
+            <h2>RECOVERY</h2>
+          </ion-text>
+          <ion-text color="white">
+            <p>RECOVERY</p>
+          </ion-text>
+          <ion-text color="white">
+            <p><br> DEATHS</p>
+          </ion-text>
+        </ion-label>
+      </ion-col>
+      <ion-col class="col_c col_cd">
+        <ion-label>
+          <ion-text>
+            <h2>DEATHS</h2>
+          </ion-text>
+          <ion-text color="white">
+            <p>DEATHS</p>
+          </ion-text>
+          <ion-text color="white">
+            <p><br> + {{deathstoday}}</p>
+          </ion-text>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list *ngIf="countries != null">
+    <ion-item *ngFor="let c of countries;">
+      <ion-grid>
+        <ion-row>
+          <div>
+            <ion-col>
+              <ion-label>{{c.country}}</ion-label>
+            </ion-col>
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col  class="col_ccc">
+            <ion-label>
+              <ion-text>{{c.cases}}</ion-text>
+              <ion-text><p>Total Cases</p></ion-text>
+            </ion-label>
+          </ion-col>
+          <ion-col class="col_crr">
+            <ion-label>
+              <ion-text>{{c.recovered}}</ion-text>
+              <ion-text><p>Total Recovery</p></ion-text>
+            </ion-label>
+          </ion-col>
+          <ion-col class="col_cdd">
+            <ion-label>
+              <ion-text>{{c.deaths}}</ion-text>
+              <ion-text><p>Total Deaths</p></ion-text>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
 </ion-content>
