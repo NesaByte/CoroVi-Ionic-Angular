@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CovidAPIService } from '../API/covid-api.service';
-import { CountriesModel} from '../models/countries.model';
-
+import { CountriesModel } from '../models/countries.model';
+import { GlobalTotalModel } from '../models/globalTotal.model';
 
 @Component({
   selector: 'app-home',
@@ -10,34 +10,45 @@ import { CountriesModel} from '../models/countries.model';
 })
 export class HomePage {
 
-  countries: CountriesModel[] =[{
-    'country':     'string',
-    'cases':       'cases',
-    'todayCases':  'todayCases',
-    'deaths':      'deaths',
+  total: GlobalTotalModel[] = [{
+    'cases': 'cases',
+    'todayCases': 'todayCases',
+    'deaths': 'deaths',
     'todayDeaths': 'todayDeaths',
-    'recovered':   'recovered',
+    'recovered': 'recovered',
     'todayRecovered': 'todayRecovered',
   }];
 
-  constructor(private covidAPIService: CovidAPIService) {}
+  countries: CountriesModel[] = [{
+    'country': 'string',
+    'cases': 'cases',
+    'todayCases': 'todayCases',
+    'deaths': 'deaths',
+    'todayDeaths': 'todayDeaths',
+    'recovered': 'recovered',
+    'todayRecovered': 'todayRecovered',
+  }];
+  input_cn: String = "";
+  tobeEntered: String = "GLOBAL";
+
+  constructor(private covidAPIService: CovidAPIService) { }
 
   async ngOnInit() {
-     
-    this.covidAPIService.getAll().subscribe(val=>{
-      
-      this.countries = val; 
+    this.covidAPIService.getAll().subscribe(val => {
+      this.countries = val;
+    });
+
+    this.covidAPIService.getTotal().subscribe(tot => {
+      this.total = tot;
     })
   }
 
-  onClickFind(){
-    return this.covidAPIService.getAll().subscribe(
-      fetchedCountries =>{
-        fetchedCountries.forEach(x => {
-          //console.log(x.country);
-        }); 
-  }
-    );
+  onClickEnter(cn) {
+    this.covidAPIService.getEnteredCountry(cn).subscribe(tot => {
+      this.total = tot;
+    }) 
+    this.input_cn = "";
+    this.tobeEntered = cn;
   }
 
 }
