@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../storage.service';
+import { AssessmentQuestionModel } from '../models/assessmentQuestion.model';
 
 @Component({
   selector: 'app-account',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountPage implements OnInit {
 
-  constructor() { }
+  AssessmentQuestionModel: AssessmentQuestionModel[];
+
+  constructor(private storage: StorageService) { }
 
   ngOnInit() {
+    this.AssessmentQuestionModel = this.storage.getAllAssessments();
   }
 
+  ionViewWillEnter() {
+    this.AssessmentQuestionModel = this.storage.getAllAssessments();
+  }
 }

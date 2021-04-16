@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: SelfcarePage
+  },
+  {
+    path: 'selfassessment',
+    loadChildren: () => import('./selfassessment/selfassessment.module').then( m => m.SelfassessmentPageModule)
   }
 ];
 

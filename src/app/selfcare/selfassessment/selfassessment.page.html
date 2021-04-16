@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Self Assessment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq1"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Fever and/or chills</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq2"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Cough or barking cough</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq3"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Shortness of breath</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq4"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Sore throat</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq5"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Difficulty swallowing</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq6"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Runny or stuffy/congested nose</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq7"></ion-toggle>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label> Decrease or loss of taste or smell</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq8"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label>Pink eye</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq9"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Headache</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq10"></ion-toggle>
+      </ion-col>
+      <ion-col size="10">
+        <ion-label> Digestive issues like nausea/vomiting, diarrhea, stomach pain</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq11"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Muscle aches</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="2">
+        <ion-toggle [(ngModel)]="qq12"></ion-toggle>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label> Extreme tiredness</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="centerrow">
+      <ion-col class="ion-align-self-center">
+        <!-- <ion-button (click)="onTest(qq12)">Submit Form</ion-button> -->
+        <!-- <ion-button (click)="onClickSubmit()">Submit Form</ion-button> -->
+        <ion-button (click)="onClickSubmit(qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12)">Submit Form</ion-button>
+      </ion-col>
+
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

@@ -1,33 +1,40 @@
-<ion-content fullscreen>
+<ion-content [scrollEvents]="true">
   <ion-grid>
 
     <ion-row>
       <ion-col>
         <ion-label>
-          pic here
+          <div class="fight">
+            <p style="text-align: center;">Fight! Let's unite to defeat Covid-19!</p>
+          </div>
         </ion-label>
-      </ion-col>
-      <ion-col>
-        <ion-label>Hi there!</ion-label>
-        <ion-label>How are you feeling today?</ion-label>
       </ion-col>
     </ion-row>
-    
     <ion-row>
       <ion-col>
-        <ion-label>Fight!</ion-label>
-        <ion-label>Let's unite to defeat Covid-19!</ion-label>
+        <img src="../../assets/nesa.png" alt="">
       </ion-col>
       <ion-col>
-        <ion-label>
-          pic here
-        </ion-label>
+        <img src="../../assets/bun.png" alt="">
       </ion-col>
     </ion-row>
 
+    <ion-row> 
+      <ion-col>
+        <ion-label>
+          <div class="fight">
+            <p style="text-align: center;">Hi there! How are you feeling today?</p>
+          </div>
+        </ion-label>
+      </ion-col>
+    </ion-row>
     <ion-row>
-      <ion-label>Take this self-assessment if you were exposed to COVID-19 (novel coronavirus) or have symptoms.</ion-label>
-      <button>Start self-assessment</button>
+      <ion-label class="sa">
+        Take this self-assessment if you were exposed to COVID-19 (novel coronavirus) or have
+        symptoms. <br>
+        <button class="button" [routerLink]="['./selfassessment']">Start self-assessment</button>
+
+      </ion-label>
     </ion-row>
   </ion-grid>
 
