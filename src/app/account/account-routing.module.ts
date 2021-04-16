@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: AccountPage
+  },
+  {
+    path: ':key',
+    loadChildren: () => import('./assessment-details/assessment-details.module').then( m => m.AssessmentDetailsPageModule)
   }
 ];
 

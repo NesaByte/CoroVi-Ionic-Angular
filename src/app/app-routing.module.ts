@@ -6,6 +6,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   }, 
+  {
+    path: ':key',
+    loadChildren: () => import('./account/assessment-details/assessment-details.module').then( m => m.AssessmentDetailsPageModule)
+  }
+
   // {
   //   path: '',
   //   redirectTo: 'home',

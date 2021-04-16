@@ -27,8 +27,7 @@ export class SelfassessmentPage implements OnInit {
     "q11": "",
     "q12": "",
   }];*/
-
-  dt : string = Date.now().toString();
+ 
   qq1 : string = "false";
   qq2 : string = "false";
   qq3 : string = "false";
@@ -51,7 +50,7 @@ export class SelfassessmentPage implements OnInit {
     console.log("onclicksubmit " + qq1);  
       this.storage.SaveNewAssessment(
         //this.dt, this.qq1, this.qq2, this.qq3, this.qq4, this.qq5, this.qq6, this.qq7, this.qq8, this.qq9, this.qq10, this.qq11, this.qq12, 
-        this.dt, qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12, 
+        Date().toString(), qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12, 
       );
       this.router.navigate(['/']);
   }

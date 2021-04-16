@@ -9,6 +9,7 @@ export class StorageService {
 
   private _storage: Storage | null = null;
 
+  private AssessmentQuestionModel: AssessmentQuestionModel[] =[];
   constructor(private storage: Storage) { 
     this.init();
   }
@@ -72,8 +73,6 @@ export class StorageService {
     })
   }
 
-
-
   //get all assessments
   public getAllAssessments() {
     var alltasks: AssessmentQuestionModel[] = [];
@@ -85,10 +84,18 @@ export class StorageService {
     return alltasks;
   }
 
-
-
   //delete existing account
-  public async deleteOneTask(task: AssessmentQuestionModel) {
-    await this._storage.remove(task.dateTaken);
+  public async deleteOneAssessment(AssessmentQuestionModel: AssessmentQuestionModel) {
+    await this._storage.remove(AssessmentQuestionModel.dateTaken);
+  }
+
+  //route into the assessment details page using the KEY
+  getAssessmentKey(assessmentKey){
+    console.log("assessmentKey: " + assessmentKey);
+
+    return {...this.AssessmentQuestionModel.find(
+      hh => { console.log("equals: [" + assessmentKey + "] == ["+ hh.dateTaken + "]"); return hh.dateTaken === assessmentKey; }
+      )
+    }
   }
 }

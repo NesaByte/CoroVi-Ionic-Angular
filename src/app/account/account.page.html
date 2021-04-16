@@ -1,20 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>account</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <ion-label>display</ion-label>
-  <ion-item-sliding *ngFor="let aq of AssessmentQuestionModel" button >
+  <img src="../../assets/coroviIcon.png" alt="">
+  <ion-item-sliding *ngFor="let aq of AssessmentQuestionModel" button>
 
     <ion-item>
-       <ion-label>{{aq.q1}}</ion-label>
-    <ion-label>{{aq.dateTaken}}</ion-label>
+      <p style="font-size: 15px;">Assessment Taken at 
+        <span>{{aq.dateTaken | date: 'EEE dd MMMM yyyy, h:mm a'}}</span>
+      </p>
     </ion-item>
     <ion-item-options>
-      <ion-item-option color="danger" (click)="deleteTask(task)">
+      <ion-item-option color="danger" (click)="deleteTask(aq)">
         <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-item-option><ion-item-option color="primary"  [routerLink]="['./',aq.dateTaken]">
+        <ion-icon name="eye-outline" slot="icon-only"></ion-icon>
       </ion-item-option>
     </ion-item-options>
   </ion-item-sliding>
