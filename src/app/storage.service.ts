@@ -9,9 +9,9 @@ export class StorageService {
 
   private _storage: Storage | null = null;
 
-  private assessmentQuestionModel: AssessmentQuestionModel[] =[];
+  private assessmentQuestionModel: AssessmentQuestionModel[] = [];
 
-  constructor(private storage: Storage) { 
+  constructor(private storage: Storage) {
     this.init();
   }
 
@@ -22,14 +22,6 @@ export class StorageService {
   }
 
   //save new assessment
-  /*    public SaveNewAssessment(key: string, value: any) {
-    var newAssessment = new AssessmentQuestionModel(key, qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12);
-    console.log("Adding new assessment:");
-    console.log(key, qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12);
-    this._storage?.set(key, newAssessment);
-    this.logAllAssessments();
-  }*/
-
   public SaveNewAssessment(
     key: any,
     qq1: string,
@@ -52,23 +44,8 @@ export class StorageService {
     this.logAllAssessments();
   }
 
-  //log all assessments
-  //key is the value
-  // private logAllAssessments(){
-  //   console.log("All Tasks : ");
-  //   this._storage.forEach((key, qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12, index) => {
-  //     console.log(key, qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12, index);
-  //   });
-  // }
-  // private logAllAssessments(){
-  //   console.log("All Tasks : ");
-  //   this._storage.forEach((key, qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12, index) => {
-  //     console.log(key, qq1, qq2, qq3, qq4, qq5, qq6, qq7, qq8, qq9, qq10, qq11, qq12, index);
-  //   });
-  // }
-
   private logAllAssessments() {
-    console.log("all assss");
+    console.log("all assessments");
     this._storage.forEach((value, key, index) => {
       console.log(key, value as AssessmentQuestionModel)
     })
@@ -103,19 +80,19 @@ export class StorageService {
   }
 
   //route into the assessment details page using the KEY
-  public async getAssessmentKey(assessmentKey){
+  public getAssessmentKey(assessmentKey) {
     console.log("getAssessmentKey: " + assessmentKey);
-    return await this._storage.get(assessmentKey);
-    //var oneAssessment: AssessmentQuestionModel[] = [];
-    //var obj = await this._storage.get(assessmentKey); 
-    //this.assessmentQuestionModel = obj || null;
-    //console.log("getAssessmentKey NAME: "+ obj.q1);
-    //return this.assessmentQuestionModel;
-    // return {...this.AssessmentQuestionModel.find(
-    //   hh => { console.log("equals: [" + assessmentKey + "] == ["+ hh.dateTaken + "]"); return hh.dateTaken === assessmentKey; }
-    //   )
-    // }
+    return this._storage.get(assessmentKey).then((val) => {
+      console.log("value " + val);
+      return val;
+    })
   }
-
-
+  //await storage.length()
+//route into the assessment details page using the KEY
+public getStorageLength() { 
+  return this._storage.length().then((val) => {
+    console.log("Length " + val);
+    return val;
+  })
+}
 }

@@ -7,20 +7,101 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
-  <ion-label>{{loadedAssessment.q2}}</ion-label>
-  <ion-label>{{loadedAssessment.q2}}</ion-label>
-  <ion-label>{{loadedAssessment.q3}}</ion-label>
-  <ion-label>{{loadedAssessment.q4}}</ion-label>
-  <ion-label>{{loadedAssessment.q5}}</ion-label>
-  <ion-label>{{loadedAssessment.q6}}</ion-label>
-  <ion-label>{{loadedAssessment.q7}}</ion-label>
-  <ion-label>{{loadedAssessment.q8}}</ion-label>
-  <ion-label>{{loadedAssessment.q9}}</ion-label>
-  <ion-label>{{loadedAssessment.q10}}</ion-label>
-  <ion-label>{{loadedAssessment.q11}}</ion-label>
-  <ion-label>{{loadedAssessment.q12}}</ion-label>
-
-  <ion-label>hi</ion-label>
+<ion-content>
+  <ion-item>
+    <ion-text *ngIf="!qq1" class="good">
+      You have NO fever and/or chills
+    </ion-text>
+    <ion-text *ngIf="qq1" class="bad">
+      You have fever and/or chills
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq2" class="good">
+      You have NO Cough or barking cough
+    </ion-text>
+    <ion-text *ngIf="qq2" class="bad">
+      You have Cough or barking cough
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq3" class="good">
+      You have NO Shortness of breath
+    </ion-text>
+    <ion-text *ngIf="qq3" class="bad">
+      You have Shortness of breath
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq4" class="good">
+      You have NO Sore throat
+    </ion-text>
+    <ion-text *ngIf="qq4" class="bad">
+      You have Sore throat
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq5" class="good">
+      You have NO Difficulty swallowing
+    </ion-text>
+    <ion-text *ngIf="qq5" class="bad">
+      You have Difficulty swallowing
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq6" class="good">
+      You have NO Runny or stuffy/congested nose
+    </ion-text>
+    <ion-text *ngIf="qq6" class="bad">
+      You have Runny or stuffy/congested nose
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq7" class="good">
+      You have NO Decreased or lost your taste or smell
+    </ion-text>
+    <ion-text *ngIf="qq7" class="bad">
+      You have Decreased or lost your taste or smell
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq8" class="good">
+      You have NO Pink eye
+    </ion-text>
+    <ion-text *ngIf="qq8" class="bad">
+      You have Pink eye
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq9" class="good">
+      You have a NO Headache
+    </ion-text>
+    <ion-text *ngIf="qq9" class="bad">
+      You have a Headache
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq10" class="good">
+      You have NO Digestive issues
+    </ion-text>
+    <ion-text *ngIf="qq10" class="bad">
+      You have Digestive issues
+    </ion-text>
+  </ion-item>
+  <ion-item> 
+    <ion-text *ngIf="!qq11" class="good">
+      You have NO Muscle aches
+    </ion-text>
+    <ion-text *ngIf="qq11" class="bad">
+      You have Muscle aches
+    </ion-text>
+  </ion-item><ion-item> 
+    <ion-text *ngIf="!qq12" class="good">
+      You are NOT feeling Extreme tiredness
+    </ion-text>
+    <ion-text *ngIf="qq12" class="bad">
+      You are feeling Extreme tiredness
+    </ion-text>
+  </ion-item>
 
 </ion-content>

@@ -1,6 +1,6 @@
 <ion-content>
   <img src="../../assets/coroviIcon.png" alt="">
-  <ion-item-sliding *ngFor="let aq of AssessmentQuestionModel" button>
+  <ion-item-sliding *ngFor="let aq of AssessmentQuestionModel?.slice().reverse()" button>
 
     <ion-item>
       <p style="font-size: 15px;">Assessment Taken at
