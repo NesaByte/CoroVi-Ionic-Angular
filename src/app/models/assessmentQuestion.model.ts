@@ -1,5 +1,5 @@
 export class AssessmentQuestionModel{
-    dateTaken: string;
+    public dateTaken: string;
     public q1: String;
     public q2: String;
     public q3: String;

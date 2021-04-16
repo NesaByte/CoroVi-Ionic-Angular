@@ -10,15 +10,37 @@ import { StorageService } from '../../storage.service';
 })
 export class AssessmentDetailsPage implements OnInit {
 
-  AssessmentQuestionModel: AssessmentQuestionModel;
+  loadedAssessment: AssessmentQuestionModel[];// = new AssessmentQuestionModel('', '', '', '', '', '', '', '', '', '', '', '', '', );
+
   constructor(private activatedRoute: ActivatedRoute, private StorageService: StorageService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log("id : " + id);
+    //this.loadedAssessment = this.StorageService.getAllAssessments();
+
     this.activatedRoute.paramMap.subscribe(paramMap => {
+      // console.log("activatedRoute: ");
       if (!paramMap.has('assessmentKey')) { return; }
       const assessmentKEY = paramMap.get('assessmentKey');
-      this.AssessmentQuestionModel = this.StorageService.getAssessmentKey(assessmentKEY);
+      // console.log("assessmentKEY: " + assessmentKEY);
+      // this.StorageService.getAssessmentKey(assessmentKEY).then(saved => { 
+      //   console.log("saved : " + saved.q1);
+      //   this.loadedAssessment = saved;
+      // })
+
+      this.loadedAssessment = this.StorageService.getAssessmentKey(assessmentKEY);
+      //this.getOne(assessmentKEY);
     })
+
+    //check this one out tmr: https://stackoverflow.com/questions/52566640/using-ionic-storage-service-how-to-get-and-return-stored-json-data
+    
+  }
+
+  public async getOne(assessmentKEY) {
+    console.log("getOne: " + assessmentKEY);
+
+    //this.loadedAssessment = await this.StorageService.getAssessmentKey(assessmentKEY);
   }
 
 }

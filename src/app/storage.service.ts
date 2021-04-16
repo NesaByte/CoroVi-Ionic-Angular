@@ -9,7 +9,8 @@ export class StorageService {
 
   private _storage: Storage | null = null;
 
-  private AssessmentQuestionModel: AssessmentQuestionModel[] =[];
+  private assessmentQuestionModel: AssessmentQuestionModel[] =[];
+
   constructor(private storage: Storage) { 
     this.init();
   }
@@ -84,18 +85,37 @@ export class StorageService {
     return alltasks;
   }
 
+  //get one assessment
+  public getOneAssessments(AssessmentQuestionModel: AssessmentQuestionModel) {
+    console.log("getOneAssessments " + AssessmentQuestionModel);
+    var onetask: AssessmentQuestionModel[];
+    if (this._storage != null) {
+      this._storage.forEach((value, key, index) => {
+        onetask.push(value as AssessmentQuestionModel);
+      });
+    }
+    return onetask;
+  }
+
   //delete existing account
   public async deleteOneAssessment(AssessmentQuestionModel: AssessmentQuestionModel) {
     await this._storage.remove(AssessmentQuestionModel.dateTaken);
   }
 
   //route into the assessment details page using the KEY
-  getAssessmentKey(assessmentKey){
-    console.log("assessmentKey: " + assessmentKey);
-
-    return {...this.AssessmentQuestionModel.find(
-      hh => { console.log("equals: [" + assessmentKey + "] == ["+ hh.dateTaken + "]"); return hh.dateTaken === assessmentKey; }
-      )
-    }
+  public async getAssessmentKey(assessmentKey){
+    console.log("getAssessmentKey: " + assessmentKey);
+    return await this._storage.get(assessmentKey);
+    //var oneAssessment: AssessmentQuestionModel[] = [];
+    //var obj = await this._storage.get(assessmentKey); 
+    //this.assessmentQuestionModel = obj || null;
+    //console.log("getAssessmentKey NAME: "+ obj.q1);
+    //return this.assessmentQuestionModel;
+    // return {...this.AssessmentQuestionModel.find(
+    //   hh => { console.log("equals: [" + assessmentKey + "] == ["+ hh.dateTaken + "]"); return hh.dateTaken === assessmentKey; }
+    //   )
+    // }
   }
+
+
 }

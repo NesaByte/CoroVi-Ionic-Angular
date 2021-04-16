@@ -23,7 +23,6 @@ export class AccountPage implements OnInit {
   }
 
   deleteTask(AssessmentToDelete: AssessmentQuestionModel){
-
     this.alertController.create({
       header: 'Attention',
       message : 'Are sure you want to delete?? ',
@@ -35,10 +34,8 @@ export class AccountPage implements OnInit {
           this.AssessmentQuestionModel = this.storage.getAllAssessments();
         }
       },'Cancel']
-
     }).then(alert => {
       alert.present();
     })
-
   }
 }

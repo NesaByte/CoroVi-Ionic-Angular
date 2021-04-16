@@ -3,14 +3,15 @@
   <ion-item-sliding *ngFor="let aq of AssessmentQuestionModel" button>
 
     <ion-item>
-      <p style="font-size: 15px;">Assessment Taken at 
+      <p style="font-size: 15px;">Assessment Taken at
         <span>{{aq.dateTaken | date: 'EEE dd MMMM yyyy, h:mm a'}}</span>
       </p>
     </ion-item>
     <ion-item-options>
       <ion-item-option color="danger" (click)="deleteTask(aq)">
         <ion-icon name="trash" slot="icon-only"></ion-icon>
-      </ion-item-option><ion-item-option color="primary"  [routerLink]="['./',aq.dateTaken]">
+      </ion-item-option>
+      <ion-item-option color="primary" [routerLink]="['./',aq.dateTaken]">
         <ion-icon name="eye-outline" slot="icon-only"></ion-icon>
       </ion-item-option>
     </ion-item-options>

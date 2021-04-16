@@ -9,7 +9,7 @@ const routes: Routes = [
     component: AccountPage
   },
   {
-    path: ':key',
+    path: ':assessmentKey',
     loadChildren: () => import('./assessment-details/assessment-details.module').then( m => m.AssessmentDetailsPageModule)
   }
 ];
